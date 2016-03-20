@@ -1,0 +1,16 @@
+mongo-instance:
+  build: ./mongo_image
+  ports:
+   - "27017:27017"
+  volumes:
+   - ./data/mongo:/data/db
+  environment:
+   - MONGODB_PASS="boemboem"
+gis-fiddle-db:
+  build: ./postgis_image
+  ports:
+  -  "5432:5432"
+  volumes:
+  -  ./data/postgis:/tmp/data
+  environment:
+  - PGDATA=/tmp/data
