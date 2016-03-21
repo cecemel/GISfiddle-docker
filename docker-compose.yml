@@ -9,8 +9,8 @@ mongo-instance:
 gis-fiddle-db:
   build: ./postgis_image
   ports:
-  -  "5432:5432"
+   -  "5432:5432"
   volumes:
-  -  ./data/postgis:/tmp/data
+   -  ./data/postgis:/tmp/data
   environment:
-  - PGDATA=/tmp/data
+   - PGDATA=/tmp/data
