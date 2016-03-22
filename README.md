@@ -14,5 +14,7 @@ Assuming you didn't change any settings, the following should work
 Note: required only the first time. Check readme import_postgis_data_image if you want to add more/different data.
 
 `cd  import_postgis_data_image;`
+
 `docker build -t data-importer .;`
+
 `docker run -it --link gisfiddledocker_gis-fiddle-db_1:postgis_db data-importer;`
