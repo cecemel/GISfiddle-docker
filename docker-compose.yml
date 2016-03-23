@@ -14,3 +14,10 @@ gis-fiddle-db:
    -  ./data/postgis:/tmp/data
   environment:
    - PGDATA=/tmp/data
+node:
+  build: ./node_image
+  ports:
+   - "6969:6969"
+  links:
+   - gis-fiddle-db:postgis
+   - mongo-instance:mongo
