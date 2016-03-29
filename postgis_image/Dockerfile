@@ -10,5 +10,8 @@ RUN apt-get update \
            postgis=$POSTGIS_VERSION \
       && rm -rf /var/lib/apt/lists/*
 
+RUN mkdir -p /pgconfig
+ENV PGCONFIG=/pgconfig
+COPY ./config/postgresql.conf $PGCONFIG/postgresql.conf
 RUN mkdir -p /docker-entrypoint-initdb.d
 COPY ./initdb-postgis.sh /docker-entrypoint-initdb.d/postgis.sh

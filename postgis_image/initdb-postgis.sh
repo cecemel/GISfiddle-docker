@@ -42,6 +42,9 @@ psql <<- EOSQL
     GRANT ALL PRIVILEGES ON DATABASE gis_fiddle TO postgres;
     CREATE USER gis_fiddle_user;
     GRANT SELECT ON ALL TABLES IN SCHEMA public TO gis_fiddle_user;
+    GRANT SELECT ON ALL SEQUENCES IN SCHEMA public TO gis_fiddle_user;
     \connect gis_fiddle;
     CREATE EXTENSION hstore;
 EOSQL
+#move some config files
+cp $PGCONFIG/postgresql.conf $PGDATA/
