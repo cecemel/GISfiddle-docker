@@ -37,12 +37,14 @@ for DB in template_postgis "$POSTGRES_DB"; do
 		done
 	fi
 done
+#http://stackoverflow.com/questions/760210/how-do-you-create-a-read-only-user-in-postgresql
 psql <<- EOSQL
     ALTER DATABASE "template_postgis" RENAME TO "gis_fiddle";
     GRANT ALL PRIVILEGES ON DATABASE gis_fiddle TO postgres;
     CREATE USER gis_fiddle_user;
     GRANT SELECT ON ALL TABLES IN SCHEMA public TO gis_fiddle_user;
     GRANT SELECT ON ALL SEQUENCES IN SCHEMA public TO gis_fiddle_user;
+    ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO gis_fiddle_user;
     \connect gis_fiddle;
     CREATE EXTENSION hstore;
 EOSQL
