@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:16.10
 
 # Install Python.
 RUN \
