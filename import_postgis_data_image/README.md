@@ -1,5 +1,5 @@
 #What
-Loads data into PostGIS backend according to the 'pgsimple_schema' </br>
+Loads data into PostGIS backend according to the 'pgsnapshot_schema' </br>
 Depends on [Osmosis](http://wiki.openstreetmap.org/wiki/Osmosis/) and custom python script to load the data. <br>
 You can import data incrementally, i.e. upload different (even overlapping) regions.
 
